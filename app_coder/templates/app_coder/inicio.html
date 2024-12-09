@@ -1,0 +1,59 @@
+{% extends 'app_coder/base.html' %}
+{% load static %}
+
+{% block title %}
+La Casa del Codigo | Inicio
+{% endblock %}
+
+{% block contenido %}
+    
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'app_coder/assets/img/1.jpg' %}" alt="Persona estudiando concentrada" /></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">Descubre tu potencial sin límites</h2>
+                    <p>¿Siempre has querido aprender algo nuevo? ¡Ahora tienes la oportunidad! Nuestra plataforma te brinda acceso a cursos de alta calidad, diseñados por expertos en cada materia. ¡Desbloquea tu potencial y alcanza tus metas!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'app_coder/assets/img/1.jpg' %}" alt="Estudiante utilizando un ordenador portátil en un entorno cómodo" /></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <h2 class="display-4">Aprende a tu ritmo, desde cualquier lugar</h2>
+                    <p>Flexibilidad y comodidad son nuestras prioridades. Estudia cuando y donde quieras, a tu propio ritmo. Nuestra plataforma te ofrece una experiencia de aprendizaje personalizada para que puedas avanzar a tu velocidad.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'app_coder/assets/img/1.jpg' %}" alt="Grupo de estudiantes colaborando en un proyecto" /></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">Únete a una comunidad de aprendizaje global</h2>
+                    <p>Conecta con otros estudiantes de todo el mundo, comparte ideas y colabora en proyectos. Nuestra comunidad te brinda el apoyo y la motivación que necesitas para alcanzar tus objetivos académicos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock contenido %}
+    

@@ -1,0 +1,49 @@
+{% extends 'app_coder/base.html' %}
+{% load static %}
+
+{% block title %}
+La Casa del Codigo | Profesores
+{% endblock %}
+
+{% block contenido %}
+
+
+<h1 style="text-align: center; margin: 50px;">Nuestros Profesores</h1>
+
+<h2>Buscar Profesor</h2>
+    <div class="d-flex flex-column align-items-center mb-2">
+        <form action="" method="GET">
+            <input type="text" name="q" placeholder="Buscar..." required>
+            <Button type="submit"> Buscar </Button>
+        </form>
+    </div>
+
+<div class="container">
+<table class="table">
+    <thead>
+    <tr class="table-danger">
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Email</th>
+        <th scope="col">Profesion</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for profesor in profesores %}
+    <tr>
+        <td>{{profesor.nombre}}</td>
+        <td>{{profesor.apellido}}</td>
+        <td>{{profesor.email}}</td>
+        <td>{{profesor.profesion}}</td>
+        
+    </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+</div style="margin-bottom: 20px;">
+
+
+
+{% endblock contenido %}
+    

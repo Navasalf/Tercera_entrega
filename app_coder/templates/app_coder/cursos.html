@@ -1,0 +1,45 @@
+{% extends 'app_coder/base.html' %}
+{% load static %}
+
+{% block title %}
+La Casa del Codigo | Cursos
+{% endblock %}
+
+{% block contenido %}
+
+<h1 style="text-align: center; margin: 50px;">Nuestros Cursos</h1>
+
+<h2>Buscar Curso</h2>
+    <div class="d-flex flex-column align-items-center mb-2">
+        <form action="" method="GET">
+            <input type="text" name="q" placeholder="Buscar..." required>
+            <Button type="submit"> Buscar </Button>
+        </form>
+    </div>
+
+<div class="container">
+<table class="table">
+    <thead>
+    <tr class="table-danger">
+        <th scope="col">Curso</th>
+        <th scope="col">Camada</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for curso in cursos %}
+    <tr>
+        
+        <td>{{curso.nombre}}</td>
+        <td>{{curso.camada}}</td>
+        
+    </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+</div style="margin-bottom: 20px;">
+
+
+
+{% endblock contenido %}
+
