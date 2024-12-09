@@ -6,7 +6,36 @@ La Casa del Codigo | Estudiantes
 {% endblock %}
 
 {% block contenido %}
-<h1 style="text-align: center;">Estudiantes</h1>
-<p>Los Mejores cursos de latinoamerica</p>
+<h1 style="text-align: center; margin: 50px;">Nuestros Estudiantes</h1>
+
+<h2>Buscar Estudiante</h2>
+    <div class="d-flex flex-column align-items-center mb-2">
+        <form action="" method="GET">
+            <input type="text" name="q" placeholder="Buscar..." required>
+            <Button type="submit"> Buscar </Button>
+        </form>
+    </div>
+
+<div class="container">
+<table class="table">
+    <thead>
+    <tr class="table-danger">
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for estudiante in estudiantes %}
+    <tr>
+        <td>{{estudiante.nombre}}</td>
+        <td>{{estudiante.apellido}}</td>
+        <td>{{estudiante.email}}</td>
+    </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+</div style="margin-bottom: 20px;">
 {% endblock contenido %}
 

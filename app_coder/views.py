@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
-
-from .models import Curso, Profesor
-from .form import CursosFormularios, ProfesorFormulario
-
+from .models import Curso, Profesor, Estudiante
+from .form import CursosFormularios, ProfesorFormulario, EstudiantesFormulario
 
 
 
@@ -20,13 +18,18 @@ def cursos(request):
 def profesores(request):
     query = request.GET.get('q')
     if query:
-        cursos = Curso.objects.filter(nombre__icontains=query)
+        profesores = Profesor.objects.filter(nombre__icontains=query)
     else:
             profesores = Profesor.objects.all()
-    return render (request, "app_coder/profesores.html", {"profesores":profesores})
+    return render (request, "app_coder/profesores.html", {"profesores":profesores}) 
     
 def estudiantes(request):
-    return render (request, "app_coder/estudiantes.html")
+    query = request.GET.get('q')
+    if query:
+        estudiantes = Estudiante.objects.filter(nombre__icontains=query)
+    else:
+        estudiantes = Estudiante.objects.all()
+    return render (request, "app_coder/estudiantes.html", {"estudiantes":estudiantes})
 
 def entregables(request):
     return render (request, "app_coder/entregables.html")
@@ -60,5 +63,15 @@ def formulario_profesor(request):
     contexto = {"form" : profesor_form}
     return render (request, "app_coder/form/profesor-formulario.html", contexto)
 
-# def formulario_profesor(request):
-#     return render (request, "app_coder/form/profesor-formulario.html")
+def formulario_estudiante(request):
+    if request.method == "POST":
+        estudiante_form = EstudiantesFormulario(request.POST)
+        if estudiante_form.is_valid():    
+            info_limpia = estudiante_form.cleaned_data
+            estudiante = Estudiante (nombre=request.POST["nombre"],apellido=request.POST["apellido"], email = request.POST["email"])
+            estudiante.save()
+            return redirect("estudiantes")
+    else:
+        estudiante_form = EstudiantesFormulario()
+    contexto = {"form" : estudiante_form}
+    return render (request, "app_coder/form/estudiante-formulario.html", contexto)  
